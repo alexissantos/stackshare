@@ -25,9 +25,9 @@ PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = "@k~;A|4aCf=&Mmn7XU#$+r6xMm`tlDbm23(;-o80RNT-9t&9`ZHjwI?/"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['stackshare.alexisjsantos.com', 'stackshare.alexissantos.me']
 
@@ -116,3 +116,6 @@ MEDIA_ROOT = os.path.join(PACKAGE_ROOT, "media/")
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = "/media/"
+
+# Stackshare API Key
+STACKSHARE_API_KEY = "53d6b72f091fc04fe11aa8883ec6f5a4"
