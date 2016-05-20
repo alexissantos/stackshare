@@ -39,4 +39,5 @@ def start(request):
         "tool_two": stackshare.json()[1],
         "tool_three": stackshare.json()[2],
         "tool_four": stackshare.json()[3],
+        "correct_tool": stackshare.json()[correct_tool],
     }), context_instance=RequestContext(request))
