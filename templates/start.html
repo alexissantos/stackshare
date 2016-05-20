@@ -3,6 +3,14 @@
 {% block body %}
 <div class="replace">
 
+	<div class="ui massive teal message">
+	  <div class="header">
+	    How well do you know dev tools?
+	  </div>
+	  <p>Ruby? Simple and expressive. DigitalOcean? Great value. New Relic? Easy setup.</p>
+	  <p>Can you identify which tool people use for the following reasons?</p>
+	</div>
+
 	<div class="ui segment">
 		<div class="ui huge labels">
 			{% for reason in correct_tool.reasons %}
