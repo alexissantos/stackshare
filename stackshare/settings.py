@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,8 +25,6 @@ SECRET_KEY = "@k~;A|4aCf=&Mmn7XU#$+r6xMm`tlDbm23(;-o80RNT-9t&9`ZHjwI?/"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
-TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['stackshare.alexisjsantos.com', 'stackshare.alexissantos.me']
 
