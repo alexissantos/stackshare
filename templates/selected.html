@@ -4,16 +4,16 @@
 	</div>
 {% else %}
 	<div class="ui massive red message">
-	  Sorry, that wasn't right. :(
+	  Sorry, {{ chosen.name }} wasn't right. :(
 	</div>
 	<div class="ui massive green message">
 	  It was {{ correct.name }}.
 	</div>
 {% endif %}
 
-<div class="ui four column grid">
+<div class="ui cards">
 	<div class="column">
-		<div class="ui fluid card">
+		<div class="ui card">
 			<div class="image">
 				<img src="{{ correct.image_url }}">
 			</div>
@@ -27,5 +27,8 @@
 			  Learn More About It!
 			</a>
 		</div>
+		<a class="ui bottom blue button" href="{% url "start" %}">
+		  Play again!
+		</a>
 	</div>
 </div>

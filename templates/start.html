@@ -16,12 +16,15 @@
 
 	<div class="ui four column grid">
 		<div class="column">
-			<div class="ui fluid card choice-one">
+			<div class="ui card">
 				<div class="image">
 					<img src="{{ tool_one.image_url }}">
 				</div>
 				<div class="content">
 					<a class="center aligned header">{{ tool_one.name }}</a>
+				</div>
+				<div class="description">
+					{{ tool_one.tag_line }}
 				</div>
 				<a class="ui bottom green attached button ajax" href="{% url "choose_tool" tool_one.id correct_tool.id %}" data-method="post" data-replace=".replace">
 				  This is it!
@@ -29,42 +32,51 @@
 			</div>
 		</div>
 		<div class="column">
-			<div class="ui fluid card">
+			<div class="ui card">
 				<div class="image">
 					<img src="{{ tool_two.image_url }}">
 				</div>
 				<div class="content">
 					<a class="center aligned header">{{ tool_two.name }}</a>
 				</div>
-				<div class="ui bottom green attached button">
-				  No, it's this one!
+				<div class="description">
+					{{ tool_two.tag_line }}
 				</div>
+				<a class="ui bottom green attached button ajax" href="{% url "choose_tool" tool_one.id correct_tool.id %}" data-method="post" data-replace=".replace">
+				  This is it!
+				</a>
 			</div>
 		</div>
 		<div class="column">
-			<div class="ui fluid card">
+			<div class="ui card">
 				<div class="image">
 					<img src="{{ tool_three.image_url }}">
 				</div>
 				<div class="content">
 					<a class="center aligned header">{{ tool_three.name }}</a>
 				</div>
-				<div class="ui bottom green attached button">
-				  Has to be this!
+				<div class="description">
+					{{ tool_three.tag_line }}
 				</div>
+				<a class="ui bottom green attached button ajax" href="{% url "choose_tool" tool_one.id correct_tool.id %}" data-method="post" data-replace=".replace">
+				  This is it!
+				</a>
 			</div>
 		</div>
 		<div class="column">
-			<div class="ui fluid card">
+			<div class="ui card">
 				<div class="image">
 					<img src="{{ tool_four.image_url }}">
 				</div>
 				<div class="content">
 					<a class="center aligned header">{{ tool_four.name }}</a>
 				</div>
-				<div class="ui bottom green attached button">
-				  This one's it!
+				<div class="description">
+					{{ tool_four.tag_line }}
 				</div>
+				<a class="ui bottom green attached button ajax" href="{% url "choose_tool" tool_one.id correct_tool.id %}" data-method="post" data-replace=".replace">
+				  This is it!
+				</a>
 			</div>
 		</div>
 	</div>
