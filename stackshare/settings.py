@@ -25,9 +25,9 @@ PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = "@k~;A|4aCf=&Mmn7XU#$+r6xMm`tlDbm23(;-o80RNT-9t&9`ZHjwI?/"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['stackshare.alexisjsantos.com', 'stackshare.alexissantos.me']
 
