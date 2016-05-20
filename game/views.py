@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 
 import requests
+import random
 
 root_url = "https://api.stackshare.io/"
 access_token_string = "&access_token=" + settings.STACKSHARE_API_KEY
@@ -29,6 +30,9 @@ def start(request):
 
     # Print a space
     print '\n'
+
+    # Pick a random number to make one tool the correct choice
+    correct_tool = random.randint(1,4)
 
     return render_to_response(template, dict({
         "tool_one": stackshare.json()[0],
