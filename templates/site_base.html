@@ -23,8 +23,14 @@
 </head>
 
 <body>
-  {% block body %}
-  {% endblock %}
+  <div class="ui vertical segment">
+    <div class="ui stackable page grid">
+        <div class="sixteeen wide column">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+  </div>
 </body>
 
 </html>
