@@ -7,6 +7,10 @@ from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.conf import settings
 
+import requests
+
+root_url = "https://api.stackshare.io/"
+
 def start(request):
 
     template = "start.html"
