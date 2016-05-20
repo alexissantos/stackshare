@@ -15,23 +15,23 @@ api_key = settings.STACKSHARE_API_KEY
 
 def start(request):
 
+    # Template used for rendering the page
     template = "start.html"
 
-    # Get 50 random tools from Stackshare
-    stackshare = requests.get(root_url + "v1/tools/explore?layer_id=1&access_token=" + api_key)
     # Create list to hold tools that have reasons
     tools = []
-    # Loop through tools returned by the Stackshare API
-    for tool in stackshare.json():
-        # Only add a tool to the list if there are less than four already there.
-        if len(tools) <= 3:
+    # Continue adding tools to the list until there are a total of 4.
+    # The while loop may seem excessive, but after some testing, it
+    # seemed like there were a few occasions where there weren't 4
+    # tools with 3 or more reasons in the 50 tools the Stackshare API provided.
+    while len(tools) < 3:
+        # Get 50 random tools from Stackshare
+        stackshare = requests.get(root_url + "v1/tools/explore?layer_id=1&access_token=" + api_key)
+        # Loop through tools returned by the Stackshare API
+        for tool in stackshare.json():
             # If a tool has three or more easons, append it to the list
             if len(tool['reasons']) >= 3:
-                print True
                 tools.append(tool)
-                print "Appended"
-        else:
-            break
     # Pick a random number to make one tool the correct choice
     correct_tool = random.randint(0,3)
 
@@ -45,7 +45,8 @@ def start(request):
 
 def choose_tool(request, chosen_id, correct_id):
 
-    template = "selected.html"
+    # Template used to update the start page
+    template = "chosen.html"
 
     if chosen_id == correct_id:
         # Boolean to check in template if player is correct
@@ -65,7 +66,7 @@ def choose_tool(request, chosen_id, correct_id):
     response = {
         "status": "OK",
         "html": render_to_string(
-            "selected.html",
+            "chosen.html",
             RequestContext(request, {
                 "chosen": chosen.json(),
                 "correct": correct.json(),
