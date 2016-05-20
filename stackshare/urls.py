@@ -6,4 +6,5 @@ admin.autodiscover()
 
 urlpatterns = patterns("game.views",
     url(r"^$", "start", name="start"),
+    url(r"^choose/(?P<chosen>\d+)/(?P<winner>\d+)/$", "choose_tool", name="choose_tool"),
 )

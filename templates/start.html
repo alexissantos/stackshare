@@ -18,9 +18,9 @@
 			<div class="content">
 				<a class="center aligned header">{{ tool_one.name }}</a>
 			</div>
-			<div class="ui bottom green attached button">
+			<a class="ui bottom green attached button" href="{% url "choose_tool" tool_one.id correct_tool.id %}">
 			  This is it!
-			</div>
+			</a>
 		</div>
 	</div>
 	<div class="column">
