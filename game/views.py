@@ -24,7 +24,7 @@ def start(request):
     # Loop through tools returned by the Stackshare API
     for tool in stackshare.json():
         # Only add a tool to the list if there are less than four already there.
-        if len(tools) <= 4:
+        if len(tools) <= 3:
             # If a tool has three or more easons, append it to the list
             if len(tool['reasons']) >= 3:
                 print True
