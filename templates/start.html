@@ -11,9 +11,12 @@
 		</div>
 	</div>
 
+	<div id="selectionLoader"></div>
+	<br/>
+
 	<div class="ui four column grid">
 		<div class="column">
-			<div class="ui fluid card">
+			<div class="ui fluid card choice-one">
 				<div class="image">
 					<img src="{{ tool_one.image_url }}">
 				</div>
@@ -67,4 +70,22 @@
 	</div>
 
 </div>
+
+
+
+<script type="text/javascript">
+  $(document).on("eldarion-ajax:begin", function(evt, $el) {
+
+
+    if (document.getElementById("loader")) {
+      var loaderExist = 1
+    }
+    else {
+      var innerDiv = document.createElement('div');
+      innerDiv.className = 'ui active inline loader';
+      innerDiv.id = 'loader';
+      document.getElementById("selectionLoader").appendChild(innerDiv);
+    }
+  });
+</script>
 {% endblock %}
