@@ -1,10 +1,7 @@
-from django.conf.urls import patterns, include, url
-from django.views.generic import TemplateView
+from django.conf.urls import url
+import game.views
 
-from django.contrib import admin
-admin.autodiscover()
-
-urlpatterns = patterns("game.views",
-    url(r"^$", "start", name="start"),
-    url(r"^choose/(?P<chosen_id>\d+)/(?P<correct_id>\d+)/$", "choose_tool", name="choose_tool"),
-)
+urlpatterns = [
+    url(r"^$", game.views.start, name="start"),
+    url(r"^choose/(?P<chosen_id>\d+)/(?P<correct_id>\d+)/$", game.views.choose_tool, name="choose_tool"),
+]

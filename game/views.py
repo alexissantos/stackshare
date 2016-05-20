@@ -1,8 +1,7 @@
 import json
 
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, get_object_or_404
-from django.core.urlresolvers import reverse
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.conf import settings
@@ -41,13 +40,14 @@ def start(request):
         "tool_three": tools[2],
         "tool_four": tools[3],
         "correct_tool": tools[correct_tool],
-    }), context_instance=RequestContext(request))
+    }))
 
 def choose_tool(request, chosen_id, correct_id):
 
     # Template used to update the start page
     template = "chosen.html"
 
+    # Check if players chose the right tool
     if chosen_id == correct_id:
         # Boolean to check in template if player is correct
         player_is_correct = True
