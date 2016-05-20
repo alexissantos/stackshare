@@ -1,16 +1,17 @@
-<div class="ui segment">
-	{% if player_is_correct %}
-		<div class="ui massive green message">
-		  You got it right! :)
-		</div>
-	{% else %}
-		<div class="ui massive red message">
-		  Sorry, that's not right. :(
-		</div>
-	{% endif %}
-</div>
+{% if player_is_correct %}
+	<div class="ui massive green message">
+	  You got it right! :)
+	</div>
+{% else %}
+	<div class="ui massive red message">
+	  Sorry, that wasn't right. :(
+	</div>
+	<div class="ui massive green message">
+	  It was {{ correct.name }}.
+	</div>
+{% endif %}
 
-<div class="ui two column grid">
+<div class="ui four column grid">
 	<div class="column">
 		<div class="ui fluid card">
 			<div class="image">
@@ -18,10 +19,13 @@
 			</div>
 			<div class="content">
 				<a class="center aligned header">{{ correct.name }}</a>
+				<div class="description">
+					{{ correct.tag_line }}
+				</div>
 			</div>
-			<div class="ui bottom green attached button">
-			  Learn More
-			</div>
+			<a class="ui bottom green attached button" href="{{ correct.canonical_url }}">
+			  Learn More About It!
+			</a>
 		</div>
 	</div>
 </div>
