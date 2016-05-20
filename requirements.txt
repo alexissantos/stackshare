@@ -1,0 +1,5 @@
+Django==1.9.6
+gunicorn==19.3
+dj-database-url==0.3.0
+Pillow
+whitenoise==2.0.2

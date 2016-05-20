@@ -1,0 +1,4 @@
+dev.db
+*.pyc
+
+.DS_Store
