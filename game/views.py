@@ -11,28 +11,27 @@ import requests
 import random
 
 root_url = "https://api.stackshare.io/"
-access_token_string = "&access_token=" + settings.STACKSHARE_API_KEY
+api_key = settings.STACKSHARE_API_KEY
 
 def start(request):
 
     template = "start.html"
 
     # Get 50 random tools from Stackshare
-    stackshare = requests.get(root_url + "v1/tools/explore?layer_id=1" + access_token_string)
+    stackshare = requests.get(root_url + "v1/tools/explore?layer_id=1&access_token=" + api_key)
     # Create list to hold tools that have reasons
     tools = []
     # Loop through tools returned by the Stackshare API
     for tool in stackshare.json():
         # Only add a tool to the list if there are less than four already there.
         if len(tools) <= 4:
-            # If a tool has reasons, append it to the list
-            if tool['reasons']:
+            # If a tool has three or more easons, append it to the list
+            if len(tool['reasons']) >= 3:
                 print True
                 tools.append(tool)
                 print "Appended"
         else:
             break
-
     # Pick a random number to make one tool the correct choice
     correct_tool = random.randint(0,3)
 
@@ -52,16 +51,16 @@ def choose_tool(request, chosen_id, correct_id):
         # Boolean to check in template if player is correct
         player_is_correct = True
         # Request info on CHOSEN tool from Stackshare
-        chosen = requests.get(root_url + "v1/tools/" + chosen_id + "?" + access_token_string)
+        chosen = requests.get(root_url + "v1/tools/" + chosen_id + "?&access_token=" + api_key)
         # Make the correct tool the same as the chosen tool
         correct = chosen
     else:
         # Boolean to check in template if player is correct
         player_is_correct = False
         # Request info on CHOSEN tool from Stackshare
-        chosen = requests.get(root_url + "v1/tools/" + chosen_id + "?" + access_token_string)
+        chosen = requests.get(root_url + "v1/tools/" + chosen_id + "?&access_token=" + api_key)
         # Request info on CORRECT tool from Stackshare
-        correct = requests.get(root_url + "v1/tools/" + correct_id + "?" + access_token_string)
+        correct = requests.get(root_url + "v1/tools/" + correct_id + "?&access_token=" + api_key)
 
     response = {
         "status": "OK",
