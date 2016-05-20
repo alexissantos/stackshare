@@ -19,23 +19,29 @@ def start(request):
 
     # Get 50 random tools from Stackshare
     stackshare = requests.get(root_url + "v1/tools/explore?layer_id=1" + access_token_string)
-    # The following print lines are for debugging in the console
-    # Print the names of the first tool Stackshare returns
-    print stackshare.json()[0]['name']
-    # Print the resons people like it
-    for reason in stackshare.json()[0]['reasons']:
-        print reason['one_liner']
-    # Print a space
-    print '\n'
+    # Create list to hold tools that have reasons
+    tools = []
+    # Loop through tools returned by the Stackshare API
+    for tool in stackshare.json():
+        # Only add a tool to the list if there are less than four already there.
+        if len(tools) <= 4:
+            # If a tool has reasons, append it to the list
+            if tool['reasons']:
+                print True
+                tools.append(tool)
+                print "Appended"
+        else:
+            break
+
     # Pick a random number to make one tool the correct choice
-    correct_tool = random.randint(1,4)
+    correct_tool = random.randint(0,3)
 
     return render_to_response(template, dict({
-        "tool_one": stackshare.json()[0],
-        "tool_two": stackshare.json()[1],
-        "tool_three": stackshare.json()[2],
-        "tool_four": stackshare.json()[3],
-        "correct_tool": stackshare.json()[correct_tool],
+        "tool_one": tools[0],
+        "tool_two": tools[1],
+        "tool_three": tools[2],
+        "tool_four": tools[3],
+        "correct_tool": tools[correct_tool],
     }), context_instance=RequestContext(request))
 
 def choose_tool(request, chosen_id, correct_id):
