@@ -1,23 +1,27 @@
-{% extends "site_base.html" %}
+<div class="ui segment">
+	{% if player_is_correct %}
+		<div class="ui massive green message">
+		  You got it right! :)
+		</div>
+	{% else %}
+		<div class="ui massive red message">
+		  Sorry, that's not right. :(
+		</div>
+	{% endif %}
+</div>
 
-{% block body %}
-	<div class="ui segment">
-
-	</div>
-
-<div class="ui four column grid">
+<div class="ui two column grid">
 	<div class="column">
 		<div class="ui fluid card">
 			<div class="image">
-				<img src="{{ tool_one.image_url }}">
+				<img src="{{ correct.image_url }}">
 			</div>
 			<div class="content">
-				<a class="center aligned header">{{ tool_one.name }}</a>
+				<a class="center aligned header">{{ correct.name }}</a>
 			</div>
 			<div class="ui bottom green attached button">
-			  This is it!
+			  Learn More
 			</div>
 		</div>
 	</div>
 </div>
-{% endblock %}

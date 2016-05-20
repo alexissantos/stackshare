@@ -1,6 +1,8 @@
 {% extends "site_base.html" %}
 
 {% block body %}
+<div class="replace">
+
 	<div class="ui segment">
 		<div class="ui huge labels">
 			{% for reason in correct_tool.reasons %}
@@ -9,58 +11,60 @@
 		</div>
 	</div>
 
-<div class="ui four column grid">
-	<div class="column">
-		<div class="ui fluid card">
-			<div class="image">
-				<img src="{{ tool_one.image_url }}">
-			</div>
-			<div class="content">
-				<a class="center aligned header">{{ tool_one.name }}</a>
-			</div>
-			<a class="ui bottom green attached button" href="{% url "choose_tool" tool_one.id correct_tool.id %}">
-			  This is it!
-			</a>
-		</div>
-	</div>
-	<div class="column">
-		<div class="ui fluid card">
-			<div class="image">
-				<img src="{{ tool_two.image_url }}">
-			</div>
-			<div class="content">
-				<a class="center aligned header">{{ tool_two.name }}</a>
-			</div>
-			<div class="ui bottom green attached button">
-			  No, it's this one!
+	<div class="ui four column grid">
+		<div class="column">
+			<div class="ui fluid card">
+				<div class="image">
+					<img src="{{ tool_one.image_url }}">
+				</div>
+				<div class="content">
+					<a class="center aligned header">{{ tool_one.name }}</a>
+				</div>
+				<a class="ui bottom green attached button ajax" href="{% url "choose_tool" tool_one.id correct_tool.id %}" data-method="post" data-replace=".replace">
+				  This is it!
+				</a>
 			</div>
 		</div>
-	</div>
-	<div class="column">
-		<div class="ui fluid card">
-			<div class="image">
-				<img src="{{ tool_three.image_url }}">
+		<div class="column">
+			<div class="ui fluid card">
+				<div class="image">
+					<img src="{{ tool_two.image_url }}">
+				</div>
+				<div class="content">
+					<a class="center aligned header">{{ tool_two.name }}</a>
+				</div>
+				<div class="ui bottom green attached button">
+				  No, it's this one!
+				</div>
 			</div>
-			<div class="content">
-				<a class="center aligned header">{{ tool_three.name }}</a>
+		</div>
+		<div class="column">
+			<div class="ui fluid card">
+				<div class="image">
+					<img src="{{ tool_three.image_url }}">
+				</div>
+				<div class="content">
+					<a class="center aligned header">{{ tool_three.name }}</a>
+				</div>
+				<div class="ui bottom green attached button">
+				  Has to be this!
+				</div>
 			</div>
-			<div class="ui bottom green attached button">
-			  Has to be this!
+		</div>
+		<div class="column">
+			<div class="ui fluid card">
+				<div class="image">
+					<img src="{{ tool_four.image_url }}">
+				</div>
+				<div class="content">
+					<a class="center aligned header">{{ tool_four.name }}</a>
+				</div>
+				<div class="ui bottom green attached button">
+				  This one's it!
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="column">
-		<div class="ui fluid card">
-			<div class="image">
-				<img src="{{ tool_four.image_url }}">
-			</div>
-			<div class="content">
-				<a class="center aligned header">{{ tool_four.name }}</a>
-			</div>
-			<div class="ui bottom green attached button">
-			  This one's it!
-			</div>
-		</div>
-	</div>
+
 </div>
 {% endblock %}

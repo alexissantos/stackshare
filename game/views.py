@@ -42,7 +42,7 @@ def choose_tool(request, chosen_id, correct_id):
 
     template = "selected.html"
 
-    if chosen_id != correct_id:
+    if chosen_id == correct_id:
         # Boolean to check in template if player is correct
         player_is_correct = True
         # Request info on CHOSEN tool from Stackshare
@@ -57,8 +57,15 @@ def choose_tool(request, chosen_id, correct_id):
         # Request info on CORRECT tool from Stackshare
         correct = requests.get(root_url + "v1/tools/" + correct_id + "?" + access_token_string)
 
-    return render_to_response(template, dict({
-        "chosen": chosen,
-        "correct": correct,
-        "player_is_correct": player_is_correct,
-    }), context_instance=RequestContext(request))
+    response = {
+        "status": "OK",
+        "html": render_to_string(
+            "selected.html",
+            RequestContext(request, {
+                "chosen": chosen.json(),
+                "correct": correct.json(),
+                "player_is_correct": player_is_correct,
+            })
+        )
+    }
+    return HttpResponse(json.dumps(response), content_type="application/json")
