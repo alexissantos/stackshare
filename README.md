@@ -1,4 +1,4 @@
-# Tool Trivia
+# Stackshare Tool Trivia
 
 ## Description
 
@@ -13,5 +13,5 @@ Tool Trivia challenges developers to identify a tool only by looking at the reas
 - requests
 
 # Future Features
-- Randomly choose a category for each game, and only display tools that fit in it. That should make it harder for players to tell which reasons belong to which tool.
+- Randomly choose a category for each game, and only display tools that fit in it. That should make it harder for players to tell which tool the reasons belong to.
 - Update to use class-based views, which is the Modern Django Way™.
