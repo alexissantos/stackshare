@@ -4,6 +4,8 @@
 
 Tool Trivia challenges developers to identify a tool only by looking at the reasons people use them. The hope is that it will challenge players' assumptions about tools or, at the very least, introduce them to new ones.
 
+Play here: [http://stackshare.alexisjsantos.com](http://stackshare.alexisjsantos.com)
+
 ## Requirements
 - Python 2.7.1
 - Django 1.9.6
