@@ -1,6 +1,14 @@
 {% extends "site_base.html" %}
 
 {% block body %}
+	<div class="ui segment">
+		<div class="ui huge labels">
+			{% for reason in correct_tool.reasons %}
+				<div class="ui label">{{ reason.one_liner }}</div>
+			{% endfor %}
+		</div>
+	</div>
+
 	<div class="ui four column grid">
 	  <div class="column">
 	    <div class="ui fluid card">
